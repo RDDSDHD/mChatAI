@@ -2,3 +2,5 @@
 
 RDchatbot/
 .streamlit/
+__pycache__
+.idea/

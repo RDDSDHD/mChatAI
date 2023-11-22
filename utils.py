@@ -1,3 +1,4 @@
+import openai
 import streamlit as st
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
@@ -15,13 +16,14 @@ The `load_chain()` function initializes and configures a conversational retrieva
 answering user questions.
 :return: The `load_chain()` function returns a ConversationalRetrievalChain object.
 """
-    api_key = "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"
+    # Load OpenAI API key
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
 
     # Load OpenAI embedding model
-    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+    embeddings = OpenAIEmbeddings()
 
     # Load OpenAI chat model
-    llm = ChatOpenAI(openai_api_key=api_key, temperature=0.1, model_name="gpt-4")
+    llm = ChatOpenAI(temperature=0.1, model_name="gpt-4")
 
     # Load our local FAISS index as a retriever
     vector_store = FAISS.load_local("faiss_index", embeddings)
