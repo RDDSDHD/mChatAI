@@ -3,7 +3,7 @@ import streamlit as st
 from utils import load_chain
 
 # Custom image for the app icon and the assistant's avatar
-company_logo = 'assets/mbank_small_logo.png'
+company_logo = 'assets/mbank.png'
 
 # Configure Streamlit page
 st.set_page_config(
